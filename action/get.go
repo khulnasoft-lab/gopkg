@@ -12,7 +12,6 @@ import (
 	gpath "github.com/Khulnasoft-lab/gopkg/path"
 	"github.com/Khulnasoft-lab/gopkg/repo"
 	"github.com/Khulnasoft-lab/gopkg/util"
-	"github.com/Khulnasoft-lab/semver"
 )
 
 // Get fetches one or more dependencies and installs.

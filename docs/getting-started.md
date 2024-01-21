@@ -52,13 +52,13 @@ If you're not managing the dependency versions for a project but need to install
 
 Gopkg can help you add more dependencies to the `gopkg.yaml` file with the `get` command.
 
-    $ gopkg get github.com/Khulnasoft-lab/semver
+    $ gopkg get github.com/Khulnasoft-lab/goctl-semver
 
 The `get` command is similar to `go get` but instead fetches dependencies into the `vendor/` folder and adds them to the `gopkg.yaml` file. This command can take one or more dependencies to fetch.
 
 The `get` command can also work with versions.
 
-    $ gopkg get github.com/Khulnasoft-lab/semver#~1.2.0
+    $ gopkg get github.com/Khulnasoft-lab/goctl-semver#~1.2.0
 
 The `#` is used as a separator between the dependency name and a version to use. The version can be a semantic version, version range, branch, tag, or commit id.
 

@@ -42,7 +42,7 @@ import:
     vcs: bzr
     repo: bzr://bzr.example.com/foo/bar/trunk
     # The version can be a branch, tag, commit id, or a semantic version
-    # constraint parsable by https://github.com/Khulnasoft-lab/semver
+    # constraint parsable by https://github.com/Khulnasoft-lab/goctl-semver
     version: 1.0.0
 
   - package: hg.example.com/foo/bar

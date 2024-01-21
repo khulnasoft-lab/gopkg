@@ -28,7 +28,7 @@
 //	  repo:    git@github.com:Khulnasoft-lab/vcs
 //	  vcs:     git
 //	- package: github.com/codegangsta/cli
-//	- package: github.com/Khulnasoft-lab/semver
+//	- package: github.com/Khulnasoft-lab/goctl-semver
 //	  version: ^1.0.0
 //
 // These elements are:

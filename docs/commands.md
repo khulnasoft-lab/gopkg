@@ -14,7 +14,7 @@ they are specified with another package manager or not.
     [INFO]	Generating a YAML configuration file and guessing the dependencies
     [INFO]	Attempting to import from other package managers (use --skip-import to skip)
     [INFO]	Scanning code to look for dependencies
-    [INFO]	--> Found reference to github.com/Khulnasoft-lab/semver
+    [INFO]	--> Found reference to github.com/Khulnasoft-lab/goctl-semver
     [INFO]	--> Found reference to github.com/Khulnasoft-lab/vcs
     [INFO]	--> Found reference to github.com/codegangsta/cli
     [INFO]	--> Found reference to gopkg.in/yaml.v2
@@ -108,7 +108,7 @@ Gopkg's `list` command shows an alphabetized list of all the packages that a pro
     	vendor/github.com/Khulnasoft-lab/cookoo/fmt
     	vendor/github.com/Khulnasoft-lab/cookoo/io
     	vendor/github.com/Khulnasoft-lab/cookoo/web
-    	vendor/github.com/Khulnasoft-lab/semver
+    	vendor/github.com/Khulnasoft-lab/goctl-semver
     	vendor/github.com/Khulnasoft-lab/vcs
     	vendor/github.com/codegangsta/cli
     	vendor/gopkg.in/yaml.v2

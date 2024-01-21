@@ -1,7 +1,6 @@
 package repo
 
 import (
-	"github.com/Khulnasoft-lab/semver"
 	"github.com/Khulnasoft-lab/vcs"
 )
 

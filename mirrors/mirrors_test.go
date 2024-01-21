@@ -4,7 +4,7 @@ import "testing"
 
 var oyml = `
 repos:
-- original: github.com/Khulnasoft-lab/semver
+- original: github.com/Khulnasoft-lab/goctl-semver
   repo: file:///path/to/local/repo
   vcs: git
 - original: github.com/Khulnasoft-lab/atest
@@ -14,7 +14,7 @@ repos:
 var ooutyml = `repos:
 - original: github.com/Khulnasoft-lab/atest
   repo: github.com/example/atest
-- original: github.com/Khulnasoft-lab/semver
+- original: github.com/Khulnasoft-lab/goctl-semver
   repo: file:///path/to/local/repo
   vcs: git
 `

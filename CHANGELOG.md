@@ -138,7 +138,7 @@ to be supporting builds for it at this time.
   This is to conform with other Go tools that require this.
 - #501: Updating the plugins documentation and adding listing
 - #500: Log an error if stripping version control data fails (thanks @alexbrand)
-- #496: Updated to github.com/Khulnasoft-lab/semver 1.1.1
+- #496: Updated to github.com/Khulnasoft-lab/goctl-semver 1.1.1
 - #495: Updated to github.com/Khulnasoft-lab/vcs 1.8.0
 - #494: Gopkg install skips fetch when it is up to date
 - #489: Make shared funcs for lockfile usage (thanks @heewa)

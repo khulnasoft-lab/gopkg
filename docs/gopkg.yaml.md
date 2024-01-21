@@ -24,7 +24,7 @@ The `gopkg.yaml` file contains information about the project and the dependent p
       vcs:     git
     - package: github.com/codegangsta/cli
       version: f89effe81c1ece9c5b0fda359ebd9cf65f169a51
-    - package: github.com/Khulnasoft-lab/semver
+    - package: github.com/Khulnasoft-lab/goctl-semver
       version: ^1.0.0
     testImport:
     - package: github.com/arschles/assert

@@ -21,7 +21,7 @@ func TestResolveLocalShallow(t *testing.T) {
 	}
 
 	expect := []string{
-		filepath.FromSlash("github.com/Khulnasoft-lab/semver"),
+		filepath.FromSlash("github.com/Khulnasoft-lab/goctl-semver"),
 		filepath.FromSlash("github.com/Khulnasoft-lab/vcs"),
 		filepath.FromSlash("gopkg.in/yaml.v2"),
 		filepath.FromSlash("github.com/codegangsta/cli"),
@@ -86,7 +86,7 @@ func TestResolveAll(t *testing.T) {
 	// These are build dependencies of Gopkg, so we know they are here.
 	deps := []*cfg.Dependency{
 		{Name: "github.com/codegangsta/cli"},
-		{Name: "github.com/Khulnasoft-lab/semver"},
+		{Name: "github.com/Khulnasoft-lab/goctl-semver"},
 		{Name: "github.com/Khulnasoft-lab/vcs"},
 		{Name: "gopkg.in/yaml.v2"},
 	}

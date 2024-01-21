@@ -11,7 +11,6 @@ import (
 	"github.com/Khulnasoft-lab/gopkg/cfg"
 	"github.com/Khulnasoft-lab/gopkg/msg"
 	gpath "github.com/Khulnasoft-lab/gopkg/path"
-	"github.com/Khulnasoft-lab/semver"
 	"github.com/Khulnasoft-lab/vcs"
 )
 

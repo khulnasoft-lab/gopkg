@@ -25,7 +25,7 @@ using that instead of Gopkg. Gopkg is now mostly unmaintained.
 
 * Ease dependency management
 * Support **versioning packages** including [Semantic Versioning
-  2.0.0](http://semver.org/) support. Any constraint the [`github.com/Khulnasoft-lab/semver`](https://github.com/Khulnasoft-lab/semver)
+  2.0.0](http://semver.org/) support. Any constraint the [`github.com/Khulnasoft-lab/goctl-semver`](https://github.com/Khulnasoft-lab/goctl-semver)
   package can parse can be used.
 * Support **aliasing packages** (e.g. for working with github forks)
 * Remove the need for munging import statements
@@ -161,7 +161,7 @@ $ gopkg create
 [INFO]	Generating a YAML configuration file and guessing the dependencies
 [INFO]	Attempting to import from other package managers (use --skip-import to skip)
 [INFO]	Scanning code to look for dependencies
-[INFO]	--> Found reference to github.com/Khulnasoft-lab/semver
+[INFO]	--> Found reference to github.com/Khulnasoft-lab/goctl-semver
 [INFO]	--> Found reference to github.com/Khulnasoft-lab/vcs
 [INFO]	--> Found reference to github.com/codegangsta/cli
 [INFO]	--> Found reference to gopkg.in/yaml.v2
@@ -281,7 +281,7 @@ github.com/Khulnasoft-lab/gopkg
 				github.com/Khulnasoft-lab/vcs   (/Users/mfarina/Code/go/src/github.com/Khulnasoft-lab/gopkg/vendor/github.com/Khulnasoft-lab/vcs)
 			github.com/Khulnasoft-lab/vcs   (/Users/mfarina/Code/go/src/github.com/Khulnasoft-lab/gopkg/vendor/github.com/Khulnasoft-lab/vcs)
 			gopkg.in/yaml.v2   (/Users/mfarina/Code/go/src/gopkg.in/yaml.v2)
-		github.com/Khulnasoft-lab/semver   (/Users/mfarina/Code/go/src/github.com/Khulnasoft-lab/gopkg/vendor/github.com/Khulnasoft-lab/semver)
+		github.com/Khulnasoft-lab/goctl-semver   (/Users/mfarina/Code/go/src/github.com/Khulnasoft-lab/gopkg/vendor/github.com/Khulnasoft-lab/goctl-semver)
 		github.com/Khulnasoft-lab/vcs   (/Users/mfarina/Code/go/src/github.com/Khulnasoft-lab/gopkg/vendor/github.com/Khulnasoft-lab/vcs)
 		github.com/codegangsta/cli   (/Users/mfarina/Code/go/src/github.com/Khulnasoft-lab/gopkg/vendor/github.com/codegangsta/cli)
 	github.com/codegangsta/cli   (/Users/mfarina/Code/go/src/github.com/Khulnasoft-lab/gopkg/vendor/github.com/codegangsta/cli)
@@ -295,7 +295,7 @@ github.com/Khulnasoft-lab/gopkg
 			github.com/Khulnasoft-lab/vcs   (/Users/mfarina/Code/go/src/github.com/Khulnasoft-lab/gopkg/vendor/github.com/Khulnasoft-lab/vcs)
 		github.com/Khulnasoft-lab/vcs   (/Users/mfarina/Code/go/src/github.com/Khulnasoft-lab/gopkg/vendor/github.com/Khulnasoft-lab/vcs)
 		gopkg.in/yaml.v2   (/Users/mfarina/Code/go/src/gopkg.in/yaml.v2)
-	github.com/Khulnasoft-lab/semver   (/Users/mfarina/Code/go/src/github.com/Khulnasoft-lab/gopkg/vendor/github.com/Khulnasoft-lab/semver)
+	github.com/Khulnasoft-lab/goctl-semver   (/Users/mfarina/Code/go/src/github.com/Khulnasoft-lab/gopkg/vendor/github.com/Khulnasoft-lab/goctl-semver)
 	github.com/Khulnasoft-lab/vcs   (/Users/mfarina/Code/go/src/github.com/Khulnasoft-lab/gopkg/vendor/github.com/Khulnasoft-lab/vcs)
 	github.com/codegangsta/cli   (/Users/mfarina/Code/go/src/github.com/Khulnasoft-lab/gopkg/vendor/github.com/codegangsta/cli)
 ```
@@ -319,7 +319,7 @@ INSTALLED packages:
 	vendor/github.com/Khulnasoft-lab/cookoo/fmt
 	vendor/github.com/Khulnasoft-lab/cookoo/io
 	vendor/github.com/Khulnasoft-lab/cookoo/web
-	vendor/github.com/Khulnasoft-lab/semver
+	vendor/github.com/Khulnasoft-lab/goctl-semver
 	vendor/github.com/Khulnasoft-lab/vcs
 	vendor/github.com/codegangsta/cli
 	vendor/gopkg.in/yaml.v2
@@ -356,7 +356,7 @@ A brief `gopkg.yaml` file looks like this:
 ```yaml
 package: github.com/Khulnasoft-lab/gopkg
 import:
-  - package: github.com/Khulnasoft-lab/semver
+  - package: github.com/Khulnasoft-lab/goctl-semver
   - package: github.com/Khulnasoft-lab/cookoo
     version: ^1.2.0
     repo: git@github.com:Khulnasoft-lab/cookoo.git
@@ -377,7 +377,7 @@ that `package` and `repo` can be completely different)
 
 **TIP:** The version is either VCS dependent and can be anything that can be checked
 out or a semantic version constraint that can be parsed by the [`github.com/
-Khulnasoft-lab/semver`](https://github.com/Khulnasoft-lab/semver) package.
+Khulnasoft-lab/goctl-semver`](https://github.com/Khulnasoft-lab/goctl-semver) package.
 For example, with Git this can be a branch, tag, or hash. This varies and
 depends on what's supported in the VCS.
 

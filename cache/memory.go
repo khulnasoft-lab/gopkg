@@ -4,7 +4,6 @@ import (
 	"sync"
 
 	"github.com/Khulnasoft-lab/gopkg/msg"
-	"github.com/Khulnasoft-lab/semver"
 )
 
 // Provide an in memory cache of imported project information.

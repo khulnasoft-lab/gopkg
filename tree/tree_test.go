@@ -21,7 +21,7 @@ func TestFindInTree(t *testing.T) {
 	l := list.New()
 	l.PushBack("github.com/Khulnasoft-lab/gopkg")
 	l.PushBack("github.com/Khulnasoft-lab/vcs")
-	l.PushBack("github.com/Khulnasoft-lab/semver")
+	l.PushBack("github.com/Khulnasoft-lab/goctl-semver")
 
 	f := findInList("foo", l)
 	if f != false {
