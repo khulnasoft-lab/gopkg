@@ -266,7 +266,7 @@ And thanks to @derelk, @franciscocpg, @shawnps, @kngu9, @tugberkugurlu, @rhcarva
 
 # Release 0.8.2 (2015-12-21)
 
-- Fixed #169: cookoo git url has auth info. Makes gopkg unbuildable for
+- Fixed #169: gococ git url has auth info. Makes gopkg unbuildable for
   environments not setup for GitHub.
 - Fixed #180: the hash in the gopkg.lock file was not being properly calculated.
 - Fixed #174: gopkg get was causing an error when the flag --updated-vendored

@@ -15,12 +15,12 @@ func TestAddPkgsToConfig(t *testing.T) {
 
 	conf := new(cfg.Config)
 	dep := new(cfg.Dependency)
-	dep.Name = "github.com/Khulnasoft-lab/cookoo"
+	dep.Name = "github.com/Khulnasoft-lab/gococ"
 	dep.Subpackages = append(dep.Subpackages, "convert")
 	conf.Imports = append(conf.Imports, dep)
 
 	names := []string{
-		"github.com/Khulnasoft-lab/cookoo/fmt",
+		"github.com/Khulnasoft-lab/gococ/fmt",
 		"github.com/Khulnasoft-lab/goctl-semver",
 	}
 
@@ -30,7 +30,7 @@ func TestAddPkgsToConfig(t *testing.T) {
 		t.Error("addPkgsToConfig failed to add github.com/Khulnasoft-lab/goctl-semver")
 	}
 
-	d := conf.Imports.Get("github.com/Khulnasoft-lab/cookoo")
+	d := conf.Imports.Get("github.com/Khulnasoft-lab/gococ")
 	found := false
 	for _, s := range d.Subpackages {
 		if s == "fmt" {

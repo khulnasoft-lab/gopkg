@@ -44,13 +44,13 @@ ranges to use.
 You can download one or more packages to your `vendor` directory and have it added to your
 `gopkg.yaml` file with `gopkg get`.
 
-    $ gopkg get github.com/Khulnasoft-lab/cookoo
+    $ gopkg get github.com/Khulnasoft-lab/gococ
 
 When `gopkg get` is used it will introspect the listed package to resolve its dependencies including using Godep, GPM, Gom, and GB config files.
 
 The `gopkg get` command can have a [version or range](versions.md) passed in with the package name. For example,
 
-    $ gopkg get github.com/Khulnasoft-lab/cookoo#^1.2.3
+    $ gopkg get github.com/Khulnasoft-lab/gococ#^1.2.3
 
 The version is separated from the package name by an anchor (`#`). If no version or range is specified and the dependency uses Semantic Versions Gopkg will prompt you to ask if you want to use them.
 
@@ -104,10 +104,10 @@ Gopkg's `list` command shows an alphabetized list of all the packages that a pro
 
     $ gopkg list
     INSTALLED packages:
-    	vendor/github.com/Khulnasoft-lab/cookoo
-    	vendor/github.com/Khulnasoft-lab/cookoo/fmt
-    	vendor/github.com/Khulnasoft-lab/cookoo/io
-    	vendor/github.com/Khulnasoft-lab/cookoo/web
+    	vendor/github.com/Khulnasoft-lab/gococ
+    	vendor/github.com/Khulnasoft-lab/gococ/fmt
+    	vendor/github.com/Khulnasoft-lab/gococ/io
+    	vendor/github.com/Khulnasoft-lab/gococ/web
     	vendor/github.com/Khulnasoft-lab/goctl-semver
     	vendor/github.com/Khulnasoft-lab/vcs
     	vendor/github.com/codegangsta/cli

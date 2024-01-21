@@ -13,11 +13,11 @@ import:
   # Full definition
   # This will check out the given Git repo, set the version to master,
   # use "git" (not "go get") to manage it, and alias the package to the
-  # import path github.com/Khulnasoft-lab/cookoo
-  - package: github.com/Khulnasoft-lab/cookoo
+  # import path github.com/Khulnasoft-lab/gococ
+  - package: github.com/Khulnasoft-lab/gococ
     vcs: git
     version: master
-    repo: git@github.com:Khulnasoft-lab/cookoo.git
+    repo: git@github.com:Khulnasoft-lab/gococ.git
 
   # Here's an example with a commit hash for a version. Since repo is not
   # specified, this will use git to to try to clone

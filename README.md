@@ -138,7 +138,7 @@ manage itself, too.
 ```
 $ gopkg create                            # Start a new workspace
 $ open gopkg.yaml                         # and edit away!
-$ gopkg get github.com/Khulnasoft-lab/cookoo # Get a package and add to gopkg.yaml
+$ gopkg get github.com/Khulnasoft-lab/gococ # Get a package and add to gopkg.yaml
 $ gopkg install                           # Install packages and dependencies
 # work, work, work
 $ go build                                # Go tools work normally
@@ -193,7 +193,7 @@ You can download one or more packages to your `vendor` directory and have it add
 `gopkg.yaml` file with `gopkg get`.
 
 ```
-$ gopkg get github.com/Khulnasoft-lab/cookoo
+$ gopkg get github.com/Khulnasoft-lab/gococ
 ```
 
 When `gopkg get` is used it will introspect the listed package to resolve its
@@ -268,11 +268,11 @@ gives data like this:
 ```
 $ gopkg tree
 github.com/Khulnasoft-lab/gopkg
-	github.com/Khulnasoft-lab/cookoo   (/Users/mfarina/Code/go/src/github.com/Khulnasoft-lab/gopkg/vendor/github.com/Khulnasoft-lab/cookoo)
-		github.com/Khulnasoft-lab/cookoo/io   (/Users/mfarina/Code/go/src/github.com/Khulnasoft-lab/gopkg/vendor/github.com/Khulnasoft-lab/cookoo/io)
+	github.com/Khulnasoft-lab/gococ   (/Users/mfarina/Code/go/src/github.com/Khulnasoft-lab/gopkg/vendor/github.com/Khulnasoft-lab/gococ)
+		github.com/Khulnasoft-lab/gococ/io   (/Users/mfarina/Code/go/src/github.com/Khulnasoft-lab/gopkg/vendor/github.com/Khulnasoft-lab/gococ/io)
 	github.com/Khulnasoft-lab/gopkg/cmd   (/Users/mfarina/Code/go/src/github.com/Khulnasoft-lab/gopkg/cmd)
-		github.com/Khulnasoft-lab/cookoo   (/Users/mfarina/Code/go/src/github.com/Khulnasoft-lab/gopkg/vendor/github.com/Khulnasoft-lab/cookoo)
-			github.com/Khulnasoft-lab/cookoo/io   (/Users/mfarina/Code/go/src/github.com/Khulnasoft-lab/gopkg/vendor/github.com/Khulnasoft-lab/cookoo/io)
+		github.com/Khulnasoft-lab/gococ   (/Users/mfarina/Code/go/src/github.com/Khulnasoft-lab/gopkg/vendor/github.com/Khulnasoft-lab/gococ)
+			github.com/Khulnasoft-lab/gococ/io   (/Users/mfarina/Code/go/src/github.com/Khulnasoft-lab/gopkg/vendor/github.com/Khulnasoft-lab/gococ/io)
 		github.com/Khulnasoft-lab/gopkg/gb   (/Users/mfarina/Code/go/src/github.com/Khulnasoft-lab/gopkg/gb)
 		github.com/Khulnasoft-lab/gopkg/util   (/Users/mfarina/Code/go/src/github.com/Khulnasoft-lab/gopkg/util)
 			github.com/Khulnasoft-lab/vcs   (/Users/mfarina/Code/go/src/github.com/Khulnasoft-lab/gopkg/vendor/github.com/Khulnasoft-lab/vcs)
@@ -285,8 +285,8 @@ github.com/Khulnasoft-lab/gopkg
 		github.com/Khulnasoft-lab/vcs   (/Users/mfarina/Code/go/src/github.com/Khulnasoft-lab/gopkg/vendor/github.com/Khulnasoft-lab/vcs)
 		github.com/codegangsta/cli   (/Users/mfarina/Code/go/src/github.com/Khulnasoft-lab/gopkg/vendor/github.com/codegangsta/cli)
 	github.com/codegangsta/cli   (/Users/mfarina/Code/go/src/github.com/Khulnasoft-lab/gopkg/vendor/github.com/codegangsta/cli)
-	github.com/Khulnasoft-lab/cookoo   (/Users/mfarina/Code/go/src/github.com/Khulnasoft-lab/gopkg/vendor/github.com/Khulnasoft-lab/cookoo)
-		github.com/Khulnasoft-lab/cookoo/io   (/Users/mfarina/Code/go/src/github.com/Khulnasoft-lab/gopkg/vendor/github.com/Khulnasoft-lab/cookoo/io)
+	github.com/Khulnasoft-lab/gococ   (/Users/mfarina/Code/go/src/github.com/Khulnasoft-lab/gopkg/vendor/github.com/Khulnasoft-lab/gococ)
+		github.com/Khulnasoft-lab/gococ/io   (/Users/mfarina/Code/go/src/github.com/Khulnasoft-lab/gopkg/vendor/github.com/Khulnasoft-lab/gococ/io)
 	github.com/Khulnasoft-lab/gopkg/gb   (/Users/mfarina/Code/go/src/github.com/Khulnasoft-lab/gopkg/gb)
 	github.com/Khulnasoft-lab/gopkg/util   (/Users/mfarina/Code/go/src/github.com/Khulnasoft-lab/gopkg/util)
 		github.com/Khulnasoft-lab/vcs   (/Users/mfarina/Code/go/src/github.com/Khulnasoft-lab/gopkg/vendor/github.com/Khulnasoft-lab/vcs)
@@ -315,10 +315,10 @@ that a project imports.
 ```
 $ gopkg list
 INSTALLED packages:
-	vendor/github.com/Khulnasoft-lab/cookoo
-	vendor/github.com/Khulnasoft-lab/cookoo/fmt
-	vendor/github.com/Khulnasoft-lab/cookoo/io
-	vendor/github.com/Khulnasoft-lab/cookoo/web
+	vendor/github.com/Khulnasoft-lab/gococ
+	vendor/github.com/Khulnasoft-lab/gococ/fmt
+	vendor/github.com/Khulnasoft-lab/gococ/io
+	vendor/github.com/Khulnasoft-lab/gococ/web
 	vendor/github.com/Khulnasoft-lab/goctl-semver
 	vendor/github.com/Khulnasoft-lab/vcs
 	vendor/github.com/codegangsta/cli
@@ -357,9 +357,9 @@ A brief `gopkg.yaml` file looks like this:
 package: github.com/Khulnasoft-lab/gopkg
 import:
   - package: github.com/Khulnasoft-lab/goctl-semver
-  - package: github.com/Khulnasoft-lab/cookoo
+  - package: github.com/Khulnasoft-lab/gococ
     version: ^1.2.0
-    repo: git@github.com:Khulnasoft-lab/cookoo.git
+    repo: git@github.com:Khulnasoft-lab/gococ.git
 ```
 
 The above tells `gopkg` that...
@@ -372,7 +372,7 @@ the fully qualified import path.
 
 When Gopkg reads the definition for the second library, it will get the repo
 from the source in `repo`, checkout the latest version between 1.2.0 and 2.0.0,
-and put it in `github.com/Khulnasoft-lab/cookoo` in the `vendor` directory. (Note
+and put it in `github.com/Khulnasoft-lab/gococ` in the `vendor` directory. (Note
 that `package` and `repo` can be completely different)
 
 **TIP:** The version is either VCS dependent and can be anything that can be checked

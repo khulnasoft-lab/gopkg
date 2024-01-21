@@ -34,8 +34,8 @@ import:
       - i386
       - arm
   - package: github.com/Khulnasoft-lab/structable
-  - package: github.com/Khulnasoft-lab/cookoo/color
-  - package: github.com/Khulnasoft-lab/cookoo/convert
+  - package: github.com/Khulnasoft-lab/gococ/color
+  - package: github.com/Khulnasoft-lab/gococ/convert
 
 testImport:
   - package: github.com/kylelemons/go-gypsy
@@ -71,11 +71,11 @@ func TestManualConfigFromYaml(t *testing.T) {
 			found = true
 			ref := "a9949121a2e2192ca92fa6dddfeaaa4a4412d955"
 			if i.Reference != ref {
-				t.Errorf("Config reference for cookoo is inaccurate. Expected '%s' found '%s'", ref, i.Reference)
+				t.Errorf("Config reference for gococ is inaccurate. Expected '%s' found '%s'", ref, i.Reference)
 			}
 		}
 
-		if i.Name == "github.com/Khulnasoft-lab/cookoo" {
+		if i.Name == "github.com/Khulnasoft-lab/gococ" {
 			found2 = true
 			if i.Subpackages[0] != "color" {
 				t.Error("Dependency separating package and subpackage not working")
@@ -86,7 +86,7 @@ func TestManualConfigFromYaml(t *testing.T) {
 		t.Error("Unable to find github.com/Khulnasoft-lab/convert")
 	}
 	if !found2 {
-		t.Error("Unable to find github.com/Khulnasoft-lab/cookoo")
+		t.Error("Unable to find github.com/Khulnasoft-lab/gococ")
 	}
 }
 

@@ -50,8 +50,8 @@ func toSlash(v string) string {
 // GetRootFromPackage retrives the top level package from a name.
 //
 // From a package name find the root repo. For example,
-// the package github.com/Khulnasoft-lab/cookoo/io has a root repo
-// at github.com/Khulnasoft-lab/cookoo
+// the package github.com/Khulnasoft-lab/gococ/io has a root repo
+// at github.com/Khulnasoft-lab/gococ
 func GetRootFromPackage(pkg string) string {
 	pkg = toSlash(pkg)
 	for _, v := range vcsList {

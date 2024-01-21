@@ -28,7 +28,7 @@ func TestSortLocks(t *testing.T) {
 
 	if ls[0].Name != "github.com/kylelemons/go-gypsy" ||
 		ls[1].Name != "github.com/Khulnasoft-lab/convert" ||
-		ls[2].Name != "github.com/Khulnasoft-lab/cookoo" ||
+		ls[2].Name != "github.com/Khulnasoft-lab/gococ" ||
 		ls[3].Name != "github.com/Khulnasoft-lab/structable" {
 		t.Error("Sorting of dependencies failed")
 	}

@@ -11,13 +11,13 @@ func TestNormalizeName(t *testing.T) {
 		extra string
 	}{
 		{
-			input: "github.com/Khulnasoft-lab/cookoo/web/io/foo",
-			root:  "github.com/Khulnasoft-lab/cookoo",
+			input: "github.com/Khulnasoft-lab/gococ/web/io/foo",
+			root:  "github.com/Khulnasoft-lab/gococ",
 			extra: "web/io/foo",
 		},
 		{
-			input: `github.com\Khulnasoft-lab\cookoo\web\io\foo`,
-			root:  "github.com/Khulnasoft-lab/cookoo",
+			input: `github.com\Khulnasoft-lab\gococ\web\io\foo`,
+			root:  "github.com/Khulnasoft-lab/gococ",
 			extra: "web/io/foo",
 		},
 		{

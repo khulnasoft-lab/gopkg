@@ -7,7 +7,7 @@
 //
 //	package: github.com/Khulnasoft-lab/gopkg
 //	imports:
-//	- package: github.com/Khulnasoft-lab/cookoo
+//	- package: github.com/Khulnasoft-lab/gococ
 //	- package: github.com/kylelemons/go-gypsy
 //	  subpackages:
 //	  - yaml
@@ -43,7 +43,7 @@ const usage = `Vendor Package Management for your Go projects.
 
        package: github.com/Khulnasoft-lab/gopkg
        imports:
-       - package: github.com/Khulnasoft-lab/cookoo
+       - package: github.com/Khulnasoft-lab/gococ
          version: 1.1.0
        - package: github.com/kylelemons/go-gypsy
          subpackages:
@@ -160,9 +160,9 @@ func commands() []cli.Command {
 			Description: `Gets one or more package (like 'go get') and then adds that file
    to the gopkg.yaml file. Multiple package names can be specified on one line.
 
-       $ gopkg get github.com/Khulnasoft-lab/cookoo/web
+       $ gopkg get github.com/Khulnasoft-lab/gococ/web
 
-   The above will install the project github.com/Khulnasoft-lab/cookoo and add
+   The above will install the project github.com/Khulnasoft-lab/gococ and add
    the subpackage 'web'.
 
    If a fetched dependency has a gopkg.yaml file, configuration from Godep,
