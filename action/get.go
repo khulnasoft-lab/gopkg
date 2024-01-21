@@ -25,9 +25,9 @@ func Get(names []string, installer *repo.Installer, insecure, skipRecursive, str
 	EnsureGopath()
 	EnsureVendorDir()
 	conf := EnsureConfig()
-	gopkgfile, err := gpath.Glide()
+	gopkgfile, err := gpath.Gopkg()
 	if err != nil {
-		msg.Die("Could not find Glide file: %s", err)
+		msg.Die("Could not find Gopkg file: %s", err)
 	}
 
 	// Add the packages to the config.

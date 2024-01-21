@@ -157,7 +157,7 @@ func ExitCode(e int) int {
 // Msg prints a message with optional arguments, that can be printed, of
 // varying types.
 func (m *Messenger) Msg(msg string, args ...interface{}) {
-	// When operations in Glide are happening concurrently messaging needs to be
+	// When operations in Gopkg are happening concurrently messaging needs to be
 	// locked to avoid displaying one message in the middle of another one.
 	m.Lock()
 	defer m.Unlock()
@@ -201,7 +201,7 @@ func Msg(msg string, args ...interface{}) {
 //
 // It does add a line feed.
 func (m *Messenger) Puts(msg string, args ...interface{}) {
-	// When operations in Glide are happening concurrently messaging needs to be
+	// When operations in Gopkg are happening concurrently messaging needs to be
 	// locked to avoid displaying one message in the middle of another one.
 	m.Lock()
 	defer m.Unlock()
@@ -223,7 +223,7 @@ func Puts(msg string, args ...interface{}) {
 //
 // It prints to Stdout.
 func (m *Messenger) Print(msg string) {
-	// When operations in Glide are happening concurrently messaging needs to be
+	// When operations in Gopkg are happening concurrently messaging needs to be
 	// locked to avoid displaying one message in the middle of another one.
 	m.Lock()
 	defer m.Unlock()

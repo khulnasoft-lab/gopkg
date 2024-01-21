@@ -6,6 +6,6 @@ import (
 
 // Init initializes the action subsystem for handling one or more subesequent actions.
 func Init(yaml, home string) {
-	gpath.GlideFile = yaml
+	gpath.GopkgFile = yaml
 	gpath.SetHome(home)
 }

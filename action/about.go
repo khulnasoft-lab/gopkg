@@ -3,7 +3,7 @@ package action
 import "github.com/Khulnasoft-lab/gopkg/msg"
 
 const aboutMessage = `
-Glide: Vendor Package Management for Go. Manage your vendor and vendored
+Gopkg: Vendor Package Management for Go. Manage your vendor and vendored
 packages with ease.
 
 Name:
@@ -14,7 +14,7 @@ Name:
 To file issues, obtain the source, or learn more visit:
     https://github.com/Khulnasoft-lab/gopkg
 
-Glide is licensed under the MIT License:
+Gopkg is licensed under the MIT License:
 
     Copyright (C) 2014-2015, Matt Butcher and Matt Farina
     Copyright (C) 2015, Google
@@ -37,7 +37,7 @@ Glide is licensed under the MIT License:
     OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
     THE SOFTWARE.`
 
-// About prints information about Glide.
+// About prints information about Gopkg.
 func About() {
 	msg.Puts(aboutMessage)
 }

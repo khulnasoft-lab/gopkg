@@ -4,8 +4,8 @@
 
 ## Fixed
 
-- #1056: Fixed issue where Glide is not detecting crypto/ed25519, now in the stdlib (thanks @martinkunc)
-- #1033: Fixed segfault with Glide 0.13.2 when stripping Godep workspace (thanks @databus23)
+- #1056: Fixed issue where Gopkg is not detecting crypto/ed25519, now in the stdlib (thanks @martinkunc)
+- #1033: Fixed segfault with Gopkg 0.13.2 when stripping Godep workspace (thanks @databus23)
 
 # Release 0.13.2 (2018-09-26)
 
@@ -105,7 +105,7 @@ to be supporting builds for it at this time.
 - #287: When file or directory not found provide useful message
 - #559: Fixed error is nil issue (thanks @mfycheng)
 - #553: Export was failing with different physical devices
-- #542: Glide failed to detect some test dependencies (thanks @sdboyer)
+- #542: Gopkg failed to detect some test dependencies (thanks @sdboyer)
 - #517: Fixed failure to install testImport from lock when no imports present
   or when same dependency on both import and testImport
 - #440: Fixed panic in `gopkg tree` when walking the filesystem (thanks @abhin4v)
@@ -129,7 +129,7 @@ to be supporting builds for it at this time.
 - #393 and #401: Added a PPA (https://github.com/Khulnasoft-lab/gopkg-ppa) and instructions
   on using it (thanks @franciscocpg)
 - #390: Added support for custom Go executable name. Needed for environments like
-  appengine. Environment variable GLIDE_GO_EXECUTABLE (thanks @dpmcnevin)
+  appengine. Environment variable GOPKG_GO_EXECUTABLE (thanks @dpmcnevin)
 - #382: `gopkg info` command takes a format string and returns info (thanks @franciscocpg)
 - #365: gopkg list: support json output format (thanks @chancez)
 
@@ -140,7 +140,7 @@ to be supporting builds for it at this time.
 - #500: Log an error if stripping version control data fails (thanks @alexbrand)
 - #496: Updated to github.com/Khulnasoft-lab/semver 1.1.1
 - #495: Updated to github.com/Khulnasoft-lab/vcs 1.8.0
-- #494: Glide install skips fetch when it is up to date
+- #494: Gopkg install skips fetch when it is up to date
 - #489: Make shared funcs for lockfile usage (thanks @heewa)
 - #459: When a conflict occurs output the tag, if one exists, for the commit
 - #443: Updating message indentation to be uniform
@@ -165,7 +165,7 @@ And thanks to @derelk, @franciscocpg, @shawnps, @kngu9, @tugberkugurlu, @rhcarva
 
 - Issue #362: Updated docs on how -update-vendored works to help avoid confusion.
 - Fixed #371: Warn when name/location mismatch.
-- Fixed #290: On windows Glide was sometimes pulls in current project (thanks tzneal).
+- Fixed #290: On windows Gopkg was sometimes pulls in current project (thanks tzneal).
 - Fixed #361: Handle relative imports (thanks tmm1).
 - Fixed #373: Go 1.7 context package import issues.
 
@@ -188,12 +188,12 @@ And thanks to @derelk, @franciscocpg, @shawnps, @kngu9, @tugberkugurlu, @rhcarva
   migrated to vendor folder handling.
 - Issue #350: More detailed conflict information (commit metadata displayed).
 - Issue #351: Move to Gitter for chat.
-- Issue #352: Make Glide installable. The dependencies are checked into the
+- Issue #352: Make Gopkg installable. The dependencies are checked into the
   `vendor` folder.
 
 # Release 0.9.3 (2016-03-09)
 
-- Fixed #324: Glide tries to update ignored package
+- Fixed #324: Gopkg tries to update ignored package
 
 # Release 0.9.2 (2016-03-08)
 
@@ -206,7 +206,7 @@ And thanks to @derelk, @franciscocpg, @shawnps, @kngu9, @tugberkugurlu, @rhcarva
   (thanks thockin).
 - Fixed #306: Don't call SetVersion twice. There was a place where it was called
   twice in a logical row (thanks thockin).
-- Fixed #304: Glide tries to update ignored packages.
+- Fixed #304: Gopkg tries to update ignored packages.
 - Fixed #302: Force update can cause a panic.
 
 # Release 0.9.1 (2016-02-24)
@@ -219,7 +219,7 @@ And thanks to @derelk, @franciscocpg, @shawnps, @kngu9, @tugberkugurlu, @rhcarva
   Improved the UX and handle the errors.
 - Fixed #279: Added Go 1.7 support that no longer has GO15VENDOREXPERIMENT.
 - Issue #267: Added `os` and `arch` import properties to the documentation.
-- Fixed #267: Glide was only walking the import tree based on build flags for
+- Fixed #267: Gopkg was only walking the import tree based on build flags for
   the current OS and Arch. This is a problem for systems like docker that have
   variation built in.
 
@@ -238,11 +238,11 @@ And thanks to @derelk, @franciscocpg, @shawnps, @kngu9, @tugberkugurlu, @rhcarva
 - Issue #237: Added Read The Docs support and initial docs. http://gopkg.readthedocs.org
 - Issue #248: Uses go env to get value of GO15VENDOREXPERIMENT due to 1.6 enabling
   by default.
-- Issue #240: Glide only scans used imports rather than all paths in the tree.
+- Issue #240: Gopkg only scans used imports rather than all paths in the tree.
   The previous behavior is available via a flag.
-- Fixed #235: Glide on windows writing incorrect slashes to files.
+- Fixed #235: Gopkg on windows writing incorrect slashes to files.
 - Fixed #227: Fixed ensure when multiple gopaths.
-- Refactored Glide
+- Refactored Gopkg
   - Many features broken out into packages. All but `action/` can be
     used as libraries.
   - Cookoo is not used anymore
@@ -290,11 +290,11 @@ And thanks to @derelk, @franciscocpg, @shawnps, @kngu9, @tugberkugurlu, @rhcarva
   `gopkg update` updates the tree and lockfile. Most people should use `gopkg
   install` unless they want to intentionally updated the pinned dependencies.
   `gopkg install` is able to use concurrency to more quickly install update.
-- Issues #33 and #159: Glide notifies if a dependency checkout has uncomitted
+- Issues #33 and #159: Gopkg notifies if a dependency checkout has uncomitted
   changes.
-- Issue #146: Glide scans projects not managed by a dependency manager, fetches
+- Issue #146: Gopkg scans projects not managed by a dependency manager, fetches
   their dependencies, and pins them in the gopkg.lock file.
-- Issue #99: Glide `get` pins dependencies by default and allows a version to
+- Issue #99: Gopkg `get` pins dependencies by default and allows a version to
   be passed in. For example, `gopkg get github.com/Khulnasoft-lab/convert#^1.0.0`
   will fetch `github.com/Khulnasoft-lab/convert` with a version of `^1.0.0`.
 - Issue #155: Copying packages from the `GOPATH` is now opt-in.
@@ -351,9 +351,9 @@ And thanks to @derelk, @franciscocpg, @shawnps, @kngu9, @tugberkugurlu, @rhcarva
 - Added `gopkg tree` command to inspect the code and see the imported packages.
 - Added `gopkg list` to see an alphabetized list of imported projects.
 - Added flatten feature to flatten the vendor tree (thanks interlock).
-- Fixed #74: Glide guess using the wrong GOROOT locations in some environments
+- Fixed #74: Gopkg guess using the wrong GOROOT locations in some environments
   (thanks janeczku).
-- Fixed #76: Glide tree doesn't exclude core libraries with the GOROOT is
+- Fixed #76: Gopkg tree doesn't exclude core libraries with the GOROOT is
   incorrect (thanks janeczku).
 - Fixed #81: rebuild command did not look in vendor/ directory
 - Fixed #77: update failed when a commit id was set for the ref
@@ -371,7 +371,7 @@ And thanks to @derelk, @franciscocpg, @shawnps, @kngu9, @tugberkugurlu, @rhcarva
 
 # Release 0.5.0 (2015-08-19)
 
-**Glide .5 is a major update breaking some backwards compatability with
+**Gopkg .5 is a major update breaking some backwards compatability with
 previous releases.**
 
 - Migrated to using the vendor/ directory and the go tools for vendor
@@ -424,9 +424,9 @@ previous releases.**
 
 - Issue #15, #18: `gopkg guess` can guess dependencies for an existing
   repo. (HUGE thanks to dz0ny)
-- Issue #14: Glide fails now when YAML is invalid.
+- Issue #14: Gopkg fails now when YAML is invalid.
 - Issue #13: cli.go added to Makefile (via roblillack)
-- Issue #12: InitGlide takes YAML file now
+- Issue #12: InitGopkg takes YAML file now
 - Issue #9: Fixed handling of $SHELL (Thanks roblillack)
 - Issue #10: Symbolic link uses a relative path now (Thanks roblillack)
 - Issue #5: Build step is deferred when 'go get' is used to fetch

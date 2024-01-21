@@ -1,8 +1,8 @@
-# Glide: Vendor Package Management for Go
+# Gopkg: Vendor Package Management for Go
 
-[Glide](https://gopkg.sh) is a package manager for [Go](https://golang.org) that is conceptually similar to package managers for other languages such as Cargo for Rust, NPM for Node.js, Pip for Python, Bundler for Ruby, and so forth.
+[Gopkg](https://gopkg.sh) is a package manager for [Go](https://golang.org) that is conceptually similar to package managers for other languages such as Cargo for Rust, NPM for Node.js, Pip for Python, Bundler for Ruby, and so forth.
 
-Glide provides the following functionality:
+Gopkg provides the following functionality:
 
 * Records dependency information in a `gopkg.yaml` file. This includes a name, version or version range, version control information for private repos or when the type cannot be detected, and more.
 * Tracks the specific revision each package is locked to in a `gopkg.lock` file. This enables reproducibly fetching the dependency tree.
@@ -12,11 +12,11 @@ Glide provides the following functionality:
 * Allows for aliasing packages which is useful for working with forks.
 * Import configuration from Godep, GPM, Gom, and GB.
 
-## Installing Glide
+## Installing Gopkg
 
-There are a few ways to install Glide.
+There are a few ways to install Gopkg.
 
 1. Use the shell script to try an automatically install it. `curl https://gopkg.sh/get | sh`
-2. Download a [versioned release](https://github.com/Khulnasoft-lab/gopkg/releases). Glide releases are semantically versioned.
-3. Use a system package manager to install Glide. For example, using `brew install gopkg` can be used if you're using [Homebrew](http://brew.sh) on Mac.
+2. Download a [versioned release](https://github.com/Khulnasoft-lab/gopkg/releases). Gopkg releases are semantically versioned.
+3. Use a system package manager to install Gopkg. For example, using `brew install gopkg` can be used if you're using [Homebrew](http://brew.sh) on Mac.
 4. The latest development snapshot can be installed with `go get`. For example, `go get -u github.com/Khulnasoft-lab/gopkg`. This is not a release version.

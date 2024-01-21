@@ -57,7 +57,7 @@ func Update(installer *repo.Installer, skipRecursive, stripVendor bool) {
 	}
 
 	// Write gopkg.yaml (Why? Godeps/GPM/GB?)
-	// I think we don't need to write a new Glide file because update should not
+	// I think we don't need to write a new Gopkg file because update should not
 	// change anything important. It will just generate information about
 	// transative dependencies, all of which belongs exclusively in the lock
 	// file, not the gopkg.yaml file.

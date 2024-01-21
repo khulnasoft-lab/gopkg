@@ -1,4 +1,4 @@
-// Package path contains path and environment utilities for Glide.
+// Package path contains path and environment utilities for Gopkg.
 //
 // This includes tools to find and manipulate Go path variables, as well as
 // tools for copying from one path to another.
@@ -15,26 +15,26 @@ import (
 	"github.com/mitchellh/go-homedir"
 )
 
-// DefaultGlideFile is the default name for the gopkg.yaml file.
-const DefaultGlideFile = "gopkg.yaml"
+// DefaultGopkgFile is the default name for the gopkg.yaml file.
+const DefaultGopkgFile = "gopkg.yaml"
 
 // VendorDir is the name of the directory that holds vendored dependencies.
 //
 // As of Go 1.5, this is always vendor.
 var VendorDir = "vendor"
 
-// Tmp is the temporary directory Glide should use. Defaults to "" which
+// Tmp is the temporary directory Gopkg should use. Defaults to "" which
 // signals using the system default.
 var Tmp = ""
 
 // Cache the location of the homedirectory.
 var homeDir = ""
 
-// GlideFile is the name of the Glide file.
+// GopkgFile is the name of the Gopkg file.
 //
 // Setting this is not concurrency safe. For consistency, it should really
 // only be set once, at startup, or not at all.
-var GlideFile = DefaultGlideFile
+var GopkgFile = DefaultGopkgFile
 
 // LockFile is the default name for the lock file.
 const LockFile = "gopkg.lock"
@@ -46,7 +46,7 @@ func init() {
 	// Note, checking the GOPATH first to avoid invoking the go toolchain if
 	// possible.
 	if gopaths = os.Getenv("GOPATH"); len(gopaths) == 0 {
-		goExecutable := os.Getenv("GLIDE_GO_EXECUTABLE")
+		goExecutable := os.Getenv("GOPKG_GO_EXECUTABLE")
 		if len(goExecutable) <= 0 {
 			goExecutable = "go"
 		}
@@ -57,7 +57,7 @@ func init() {
 	}
 }
 
-// Home returns the Glide home directory ($GLIDE_HOME or ~/.gopkg, typically).
+// Home returns the Gopkg home directory ($GOPKG_HOME or ~/.gopkg, typically).
 //
 // This normalizes to an absolute path, and passes through os.ExpandEnv.
 func Home() string {
@@ -79,14 +79,14 @@ func Home() string {
 	return homeDir
 }
 
-// SetHome sets the home directory for Glide.
+// SetHome sets the home directory for Gopkg.
 func SetHome(h string) {
 	homeDir = h
 }
 
 // Vendor calculates the path to the vendor directory.
 //
-// Based on working directory, VendorDir and GlideFile, this attempts to
+// Based on working directory, VendorDir and GopkgFile, this attempts to
 // guess the location of the vendor directory.
 func Vendor() (string, error) {
 	cwd, err := os.Getwd()
@@ -95,7 +95,7 @@ func Vendor() (string, error) {
 	}
 
 	// Find the directory that contains gopkg.yaml
-	yamldir, err := GlideWD(cwd)
+	yamldir, err := GopkgWD(cwd)
 	if err != nil {
 		return cwd, err
 	}
@@ -128,29 +128,29 @@ func Vendor() (string, error) {
 	return gopath, nil
 }
 
-// Glide gets the path to the closest gopkg file.
-func Glide() (string, error) {
+// Gopkg gets the path to the closest gopkg file.
+func Gopkg() (string, error) {
 	cwd, err := os.Getwd()
 	if err != nil {
 		return "", err
 	}
 
 	// Find the directory that contains gopkg.yaml
-	yamldir, err := GlideWD(cwd)
+	yamldir, err := GopkgWD(cwd)
 	if err != nil {
 		return cwd, err
 	}
 
-	gf := filepath.Join(yamldir, GlideFile)
+	gf := filepath.Join(yamldir, GopkgFile)
 	return gf, nil
 }
 
-// GlideWD finds the working directory of the gopkg.yaml file, starting at dir.
+// GopkgWD finds the working directory of the gopkg.yaml file, starting at dir.
 //
 // If the gopkg file is not found in the current directory, it recurses up
 // a directory.
-func GlideWD(dir string) (string, error) {
-	fullpath := filepath.Join(dir, GlideFile)
+func GopkgWD(dir string) (string, error) {
+	fullpath := filepath.Join(dir, GopkgFile)
 
 	if _, err := os.Stat(fullpath); err == nil {
 		return dir, nil
@@ -161,7 +161,7 @@ func GlideWD(dir string) (string, error) {
 		return "", fmt.Errorf("Cannot resolve parent of %s", base)
 	}
 
-	return GlideWD(base)
+	return GopkgWD(base)
 }
 
 // Stores the gopaths so they do not get repeatedly looked up. This is especially

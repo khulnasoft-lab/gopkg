@@ -13,7 +13,7 @@ The resolution locations for a dependent package are:
 
 ## Recommendations
 
-Having worked with the `vendor/` directories since they were first released we've come to some conclusions and recommendations. Glide tries to help you with these.
+Having worked with the `vendor/` directories since they were first released we've come to some conclusions and recommendations. Gopkg tries to help you with these.
 
 1. Libraries (codebases without a `main` package) should not store outside packages in a `vendor/` folder in their VCS unless they have a specific reason and understand why they're doing it.
 2. In applications (codebases with a `main` package) there should only be one `vendor/` directory at the top level of the codebase.
@@ -23,7 +23,7 @@ There are some important reasons for these recommendations.
 * Each instance of a package, even the same package at the same version, in the directory structure will be in the resulting binaries. If everyone stores their own dependencies separately this will quickly lead to **binary bloat**.
 * Instances of a type created from a package in one location are **not compatible** with the same package, even at the exact same version, in another location. [You can see for yourself](https://github.com/mattfarina/golang-broken-vendor). That means loggers, database connections, and other shared instances won't work.
 
-Because of this Glide flattens the dependency tree into a single top level `vendor/` directory. If a package happens to have some dependencies in their own `vendor/` folder the `go` tool will properly resolve that version.
+Because of this Gopkg flattens the dependency tree into a single top level `vendor/` directory. If a package happens to have some dependencies in their own `vendor/` folder the `go` tool will properly resolve that version.
 
 ## Why Use A `vendor` Directory?
 

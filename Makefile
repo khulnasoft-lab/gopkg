@@ -1,21 +1,21 @@
-GLIDE_GO_EXECUTABLE ?= go
+GOPKG_GO_EXECUTABLE ?= go
 DIST_DIRS := find * -type d -exec
 VERSION ?= $(shell git describe --tags)
 VERSION_INCODE = $(shell perl -ne '/^var version.*"([^"]+)".*$$/ && print "v$$1\n"' gopkg.go)
 VERSION_INCHANGELOG = $(shell perl -ne '/^\# Release (\d+(\.\d+)+) / && print "$$1\n"' CHANGELOG.md | head -n1)
 
 build:
-	${GLIDE_GO_EXECUTABLE} build -o gopkg -ldflags "-X main.version=${VERSION}" gopkg.go
+	${GOPKG_GO_EXECUTABLE} build -o gopkg -ldflags "-X main.version=${VERSION}" gopkg.go
 
 install: build
 	install -d ${DESTDIR}/usr/local/bin/
 	install -m 755 ./gopkg ${DESTDIR}/usr/local/bin/gopkg
 
 test:
-	${GLIDE_GO_EXECUTABLE} test . ./gb ./path ./action ./tree ./util ./godep ./godep/strip ./gpm ./cfg ./dependency ./importer ./msg ./repo ./mirrors
+	${GOPKG_GO_EXECUTABLE} test . ./gb ./path ./action ./tree ./util ./godep ./godep/strip ./gpm ./cfg ./dependency ./importer ./msg ./repo ./mirrors
 
 integration-test:
-	${GLIDE_GO_EXECUTABLE} build
+	${GOPKG_GO_EXECUTABLE} build
 	./gopkg up
 	./gopkg install
 
@@ -25,7 +25,7 @@ clean:
 	rm -rf ./dist
 
 bootstrap-dist:
-	${GLIDE_GO_EXECUTABLE} get -u github.com/Khulnasoft-lab/gox
+	${GOPKG_GO_EXECUTABLE} get -u github.com/Khulnasoft-lab/gox
 
 build-all:
 	gox -verbose \

@@ -1,7 +1,7 @@
-// Package cache provides an interface for interfacing with the Glide local cache
+// Package cache provides an interface for interfacing with the Gopkg local cache
 //
-// Glide has a local cache of metadata and repositories similar to the GOPATH.
-// To store the cache Glide creates a .gopkg directory with a cache subdirectory.
+// Gopkg has a local cache of metadata and repositories similar to the GOPATH.
+// To store the cache Gopkg creates a .gopkg directory with a cache subdirectory.
 // This is usually in the users home directory unless there is no accessible
 // home directory in which case the .gopkg directory is in the root of the
 // repository.
@@ -21,7 +21,7 @@
 // Note, the caching is based on repo rather than package. This is important
 // for a couple reasons.
 //
-//  1. Forks or package replacements are supported in Glide. Where a different
+//  1. Forks or package replacements are supported in Gopkg. Where a different
 //     repo maps to a package.
 //  2. Permissions enable different access. For example `https://example.com/foo.git`
 //     and `git@example.com:foo.git` may have access to different branches or tags.
@@ -147,7 +147,7 @@ type RepoInfo struct {
 	LastUpdate    string `json:"last-update"`
 }
 
-// SaveRepoData stores data about a repo in the Glide cache
+// SaveRepoData stores data about a repo in the Gopkg cache
 func SaveRepoData(key string, data RepoInfo) error {
 	if !Enabled {
 		return ErrCacheDisabled

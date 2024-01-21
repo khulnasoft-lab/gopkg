@@ -1,6 +1,6 @@
-// Package action provides implementations for every Glide command.
+// Package action provides implementations for every Gopkg command.
 //
-// This is not a general-purpose library. It is the main flow controller for Glide.
+// This is not a general-purpose library. It is the main flow controller for Gopkg.
 //
 // The main gopkg package acts as a Facade, with this package providing the
 // implementation. This package should know nothing of the command line flags or

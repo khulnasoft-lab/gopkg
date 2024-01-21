@@ -35,7 +35,7 @@ These elements are:
 - `homepage`: To find the place where you can find details about the package or applications. For example, http://k8s.io
 - license: The license is either an [SPDX license](http://spdx.org/licenses/) string or the filepath to the license. This allows automation and consumers to easily identify the license.
 - `owners`: The owners is a list of one or more owners for the project. This can be a person or organization and is useful for things like notifying the owners of a security issue without filing a public bug.
-- `ignore`: A list of packages for Glide to ignore importing. These are package names to ignore rather than directories.
+- `ignore`: A list of packages for Gopkg to ignore importing. These are package names to ignore rather than directories.
 - `excludeDirs`: A list of directories in the local codebase to exclude from scanning for dependencies.
 - `import`: A list of packages to import. Each package can include:
     - `package`: The name of the package to import and the only non-optional item. Package names follow the same patterns the `go` tool does. That means:

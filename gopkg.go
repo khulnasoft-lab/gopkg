@@ -1,4 +1,4 @@
-// Glide is a command line utility that manages Go project dependencies.
+// Gopkg is a command line utility that manages Go project dependencies.
 //
 // Configuration of where to start is managed via a gopkg.yaml in the root of a
 // project. The yaml
@@ -12,8 +12,8 @@
 //	  subpackages:
 //	  - yaml
 //
-// Glide puts dependencies in a vendor directory. Go utilities require this to
-// be in your GOPATH. Glide makes this easy.
+// Gopkg puts dependencies in a vendor directory. Go utilities require this to
+// be in your GOPATH. Gopkg makes this easy.
 //
 // For more information use the `gopkg help` command or see https://gopkg.sh
 package main
@@ -78,14 +78,14 @@ func main() {
 		cli.StringFlag{
 			Name:   "home",
 			Value:  gpath.Home(),
-			Usage:  "The location of Glide files",
-			EnvVar: "GLIDE_HOME",
+			Usage:  "The location of Gopkg files",
+			EnvVar: "GOPKG_HOME",
 		},
 		cli.StringFlag{
 			Name:   "tmp",
 			Value:  "",
 			Usage:  "The temp directory to use. Defaults to systems temp",
-			EnvVar: "GLIDE_TMP",
+			EnvVar: "GOPKG_TMP",
 		},
 		cli.BoolFlag{
 			Name:  "no-color",
@@ -120,7 +120,7 @@ func commands() []cli.Command {
 			Name:      "create",
 			ShortName: "init",
 			Usage:     "Initialize a new project, creating a gopkg.yaml file",
-			Description: `This command starts from a project without Glide and
+			Description: `This command starts from a project without Gopkg and
    sets it up. It generates a gopkg.yaml file, parsing your codebase to guess
    the dependencies to include. Once this step is done you may edit the
    gopkg.yaml file to update imported dependency properties such as the version
@@ -146,7 +146,7 @@ func commands() []cli.Command {
 			Name:      "config-wizard",
 			ShortName: "cw",
 			Usage:     "Wizard that makes optional suggestions to improve config in a gopkg.yaml file.",
-			Description: `Glide will analyze a projects gopkg.yaml file and the imported
+			Description: `Gopkg will analyze a projects gopkg.yaml file and the imported
 		projects to find ways the gopkg.yaml file can potentially be improved. It
 		will then interactively make suggestions that you can skip or accept.`,
 			Action: func(c *cli.Context) error {
@@ -166,11 +166,11 @@ func commands() []cli.Command {
    the subpackage 'web'.
 
    If a fetched dependency has a gopkg.yaml file, configuration from Godep,
-   GPM, GOM, or GB Glide that configuration will be used to find the dependencies
+   GPM, GOM, or GB Gopkg that configuration will be used to find the dependencies
    and versions to fetch. If those are not available the dependent packages will
    be fetched as either a version specified elsewhere or the latest version.
 
-   When adding a new dependency Glide will perform an update to work out
+   When adding a new dependency Gopkg will perform an update to work out
    the versions for the dependencies of this dependency (transitive ones). This
    will generate an updated gopkg.lock file with specific locked versions to use.
 
@@ -324,7 +324,7 @@ func commands() []cli.Command {
 					Flags: []cli.Flag{
 						cli.StringFlag{
 							Name:  "file, f",
-							Usage: "Save all of the discovered dependencies to a Glide YAML file.",
+							Usage: "Save all of the discovered dependencies to a Gopkg YAML file.",
 						},
 					},
 					Action: func(c *cli.Context) error {
@@ -338,7 +338,7 @@ func commands() []cli.Command {
 					Flags: []cli.Flag{
 						cli.StringFlag{
 							Name:  "file, f",
-							Usage: "Save all of the discovered dependencies to a Glide YAML file.",
+							Usage: "Save all of the discovered dependencies to a Gopkg YAML file.",
 						},
 					},
 					Action: func(c *cli.Context) error {
@@ -352,7 +352,7 @@ func commands() []cli.Command {
 					Flags: []cli.Flag{
 						cli.StringFlag{
 							Name:  "file, f",
-							Usage: "Save all of the discovered dependencies to a Glide YAML file.",
+							Usage: "Save all of the discovered dependencies to a Gopkg YAML file.",
 						},
 					},
 					Action: func(c *cli.Context) error {
@@ -366,7 +366,7 @@ func commands() []cli.Command {
 					Flags: []cli.Flag{
 						cli.StringFlag{
 							Name:  "file, f",
-							Usage: "Save all of the discovered dependencies to a Glide YAML file.",
+							Usage: "Save all of the discovered dependencies to a Gopkg YAML file.",
 						},
 					},
 					Action: func(c *cli.Context) error {
@@ -447,7 +447,7 @@ Example:
 				},
 				cli.StringFlag{
 					Name:   "file, f",
-					Usage:  "Save all of the discovered dependencies to a Glide YAML file. (DEPRECATED: This has no impact.)",
+					Usage:  "Save all of the discovered dependencies to a Gopkg YAML file. (DEPRECATED: This has no impact.)",
 					Hidden: true,
 				},
 				cli.BoolFlag{
@@ -527,7 +527,7 @@ Example:
    '--no-recursive'. When this behavior is skipped a gopkg.lock file is not
    generated because the full dependency tree cannot be known.
 
-   Glide will also import Godep, GB, GOM, and GPM files as it finds them in dependencies.
+   Gopkg will also import Godep, GB, GOM, and GPM files as it finds them in dependencies.
    It will create a gopkg.yaml file from the Godeps data, and then update. This
    has no effect if '--no-recursive' is set.
 
@@ -561,7 +561,7 @@ Example:
 				},
 				cli.StringFlag{
 					Name:   "file, f",
-					Usage:  "Save all of the discovered dependencies to a Glide YAML file.",
+					Usage:  "Save all of the discovered dependencies to a Gopkg YAML file.",
 					Hidden: true,
 				},
 				cli.BoolFlag{
@@ -721,7 +721,7 @@ Example:
 		{
 			Name:      "cache-clear",
 			ShortName: "cc",
-			Usage:     "Clears the Glide cache.",
+			Usage:     "Clears the Gopkg cache.",
 			Action: func(c *cli.Context) error {
 				action.CacheClear()
 				return nil
@@ -729,7 +729,7 @@ Example:
 		},
 		{
 			Name:  "about",
-			Usage: "Learn about Glide",
+			Usage: "Learn about Gopkg",
 			Action: func(c *cli.Context) error {
 				action.About()
 				return nil
@@ -743,7 +743,7 @@ Example:
    to have a cache for your continuous integration (CI) system or if you want to
    work on a dependency in a local location.
 
-   The mirrors are stored in a mirrors.yaml file in your GLIDE_HOME.
+   The mirrors are stored in a mirrors.yaml file in your GOPKG_HOME.
 
    The three commands to manage mirrors are 'list', 'set', and 'remove'.
 
@@ -824,8 +824,8 @@ Example:
 
 // startup sets up the base environment.
 //
-// It does not assume the presence of a Glide.yaml file or vendor/ directory,
-// so it can be used by any Glide command.
+// It does not assume the presence of a Gopkg.yaml file or vendor/ directory,
+// so it can be used by any Gopkg command.
 func startup(c *cli.Context) error {
 	action.Debug(c.Bool("debug"))
 	action.NoColor(c.Bool("no-color"))

@@ -42,7 +42,7 @@ func Parse(dir string) ([]*cfg.Dependency, error) {
 
 		// Check for custom cloning command
 		if _, ok := gom.options["command"]; ok {
-			return []*cfg.Dependency{}, errors.New("Glide does not support custom Gomfile commands")
+			return []*cfg.Dependency{}, errors.New("Gopkg does not support custom Gomfile commands")
 		}
 
 		// Check for groups/environments

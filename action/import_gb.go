@@ -38,7 +38,7 @@ func appendImports(deps []*cfg.Dependency, config *cfg.Config) {
 func writeConfigToFileOrStdout(config *cfg.Config, dest string) {
 	if dest != "" {
 		if err := config.WriteFile(dest); err != nil {
-			msg.Die("Failed to write %s: %s", gpath.GlideFile, err)
+			msg.Die("Failed to write %s: %s", gpath.GopkgFile, err)
 		}
 	} else {
 		o, err := config.Marshal()

@@ -2,7 +2,7 @@
 	Package tree contains functions for printing a dependency tree.
 
 The future of the tree functionality is uncertain, as it is neither core to
-the functionality of Glide, nor particularly complementary. Its principal use
+the functionality of Gopkg, nor particularly complementary. Its principal use
 case is for debugging the generated dependency tree.
 
 Currently, the tree package builds its dependency tree in a slightly different

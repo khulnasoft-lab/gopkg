@@ -32,7 +32,7 @@ func init() {
 		v.regex = regexp.MustCompile(v.pattern)
 	}
 	if goRoot = os.Getenv("GOROOT"); len(goRoot) == 0 {
-		goExecutable := os.Getenv("GLIDE_GO_EXECUTABLE")
+		goExecutable := os.Getenv("GOPKG_GO_EXECUTABLE")
 		if len(goExecutable) <= 0 {
 			goExecutable = "go"
 		}

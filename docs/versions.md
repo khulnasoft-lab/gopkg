@@ -1,9 +1,9 @@
 # Versions and Ranges
 
-Glide supports [Semantic Versions](http://semver.org), SemVer ranges, branches, tags, and commit ids as versions.
+Gopkg supports [Semantic Versions](http://semver.org), SemVer ranges, branches, tags, and commit ids as versions.
 
 ## Basic Ranges
-A simple range is in the form `> 1.2.3`. This tells Glide to use the latest versions that's after `1.2.3`. Glide has support for the following operators:
+A simple range is in the form `> 1.2.3`. This tells Gopkg to use the latest versions that's after `1.2.3`. Gopkg has support for the following operators:
 
 * `=`: equal (aliased to no operator)
 * `!=`: not equal

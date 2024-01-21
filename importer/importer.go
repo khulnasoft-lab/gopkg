@@ -1,4 +1,4 @@
-// Package importer imports dependency configuration from Glide, Godep, GPM, GB and gom
+// Package importer imports dependency configuration from Gopkg, Godep, GPM, GB and gom
 package importer
 
 import (
@@ -15,7 +15,7 @@ import (
 
 var i = &DefaultImporter{}
 
-// Import uses the DefaultImporter to import from Glide, Godep, GPM, GB and gom.
+// Import uses the DefaultImporter to import from Gopkg, Godep, GPM, GB and gom.
 func Import(path string) (bool, []*cfg.Dependency, error) {
 	return i.Import(path)
 }
@@ -30,13 +30,13 @@ type Importer interface {
 	Import(path string) (bool, []*cfg.Dependency, error)
 }
 
-// DefaultImporter imports from Glide, Godep, GPM, GB and gom.
+// DefaultImporter imports from Gopkg, Godep, GPM, GB and gom.
 type DefaultImporter struct{}
 
-// Import tries to import configuration from Glide, Godep, GPM, GB and gom.
+// Import tries to import configuration from Gopkg, Godep, GPM, GB and gom.
 func (d *DefaultImporter) Import(path string) (bool, []*cfg.Dependency, error) {
 
-	// Try importing from Glide first.
+	// Try importing from Gopkg first.
 	p := filepath.Join(path, "gopkg.yaml")
 	if _, err := os.Stat(p); err == nil {
 		// We found gopkg configuration.

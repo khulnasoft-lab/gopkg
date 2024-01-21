@@ -1,6 +1,6 @@
 # Importing
 
-Glide has limited support for importing from other formats.
+Gopkg has limited support for importing from other formats.
 
 **Note:** If you'd like to help build importers, we'd love some pull
 requests. Just take a look at `cmd/godeps.git`.

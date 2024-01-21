@@ -19,10 +19,10 @@ import (
 //
 // Any error will cause an immediate exit, with an error printed to Stderr.
 func EnsureConfig() *cfg.Config {
-	yamlpath, err := gpath.Glide()
+	yamlpath, err := gpath.Gopkg()
 	if err != nil {
 		msg.ExitCode(2)
-		msg.Die("Failed to find %s file in directory tree: %s", gpath.GlideFile, err)
+		msg.Die("Failed to find %s file in directory tree: %s", gpath.GopkgFile, err)
 	}
 
 	yml, err := ioutil.ReadFile(yamlpath)
@@ -70,7 +70,7 @@ func EnsureGoVendor() {
 	// 6l was removed in 1.5, when vendoring was introduced.
 	cmd := exec.Command(goExecutable(), "tool", "6l")
 	if _, err := cmd.CombinedOutput(); err == nil {
-		msg.Warn("You must install the Go 1.5 or greater toolchain to work with Glide.\n")
+		msg.Warn("You must install the Go 1.5 or greater toolchain to work with Gopkg.\n")
 		os.Exit(1)
 	}
 
@@ -87,14 +87,14 @@ func EnsureGoVendor() {
 			msg.Err("Error looking for $GOVENDOREXPERIMENT: %s.\n", err)
 			os.Exit(1)
 		} else if strings.TrimSpace(string(out)) != "1" {
-			msg.Err("To use Glide, you must set GO15VENDOREXPERIMENT=1")
+			msg.Err("To use Gopkg, you must set GO15VENDOREXPERIMENT=1")
 			os.Exit(1)
 		}
 	}
 
 	// In the case where vendoring is explicitly disabled, balk.
 	if os.Getenv("GO15VENDOREXPERIMENT") == "0" {
-		msg.Err("To use Glide, you must set GO15VENDOREXPERIMENT=1")
+		msg.Err("To use Gopkg, you must set GO15VENDOREXPERIMENT=1")
 		os.Exit(1)
 	}
 
@@ -102,11 +102,11 @@ func EnsureGoVendor() {
 	// no longer assuming the _vendor directory as the GOPATH. Inform of
 	// the change.
 	if _, err := os.Stat("_vendor/"); err == nil {
-		msg.Warn(`Your setup appears to be for the previous version of Glide.
+		msg.Warn(`Your setup appears to be for the previous version of Gopkg.
 Previously, vendor packages were stored in _vendor/src/ and
 _vendor was set as your GOPATH. As of Go 1.5 the go tools
 recognize the vendor directory as a location for these
-files. Glide has embraced this. Please remove the _vendor
+files. Gopkg has embraced this. Please remove the _vendor
 directory or move the _vendor/src/ directory to vendor/.` + "\n")
 		os.Exit(1)
 	}
@@ -144,18 +144,18 @@ func EnsureGopath() string {
 	}
 
 	msg.Err("Could not find any of %s/src.\n", strings.Join(gps, "/src, "))
-	msg.Info("As of Glide 0.5/Go 1.5, this is required.\n")
+	msg.Info("As of Gopkg 0.5/Go 1.5, this is required.\n")
 	msg.Die("Without src, cannot continue.")
 	return ""
 }
 
-// goExecutable checks for a set environment variable of GLIDE_GO_EXECUTABLE
+// goExecutable checks for a set environment variable of GOPKG_GO_EXECUTABLE
 // for the go executable name. The Google App Engine SDK ships with a python
 // wrapper called goapp
 //
-// Example usage: GLIDE_GO_EXECUTABLE=goapp gopkg install
+// Example usage: GOPKG_GO_EXECUTABLE=goapp gopkg install
 func goExecutable() string {
-	goExecutable := os.Getenv("GLIDE_GO_EXECUTABLE")
+	goExecutable := os.Getenv("GOPKG_GO_EXECUTABLE")
 	if len(goExecutable) <= 0 {
 		goExecutable = "go"
 	}

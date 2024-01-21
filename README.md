@@ -1,11 +1,11 @@
-# Glide: Vendor Package Management for Golang
+# Gopkg: Vendor Package Management for Golang
 
 ![gopkg logo](https://gopkg.sh/assets/logo-small.png)
 
 Are you used to tools such as Cargo, npm, Composer, Nuget, Pip, Maven, Bundler,
-or other modern package managers? If so, Glide is the comparable Go tool.
+or other modern package managers? If so, Gopkg is the comparable Go tool.
 
-*Manage your vendor and vendored packages with ease.* Glide is a tool for
+*Manage your vendor and vendored packages with ease.* Gopkg is a tool for
 managing the `vendor` directory within a Go package. This feature, first
 introduced in Go 1.5, allows each package to have a `vendor` directory
 containing dependent packages for the project. These vendor packages can be
@@ -19,7 +19,7 @@ distributed with the package.
 ### Go Modules
 
 The Go community is now using Go Modules to handle dependencies. Please consider
-using that instead of Glide. Glide is now mostly unmaintained.
+using that instead of Gopkg. Gopkg is now mostly unmaintained.
 
 ### Features
 
@@ -44,9 +44,9 @@ using that instead of Glide. Glide is now mostly unmaintained.
 
 ## How It Works
 
-Glide scans the source code of your application or library to determine the needed
+Gopkg scans the source code of your application or library to determine the needed
 dependencies. To determine the versions and locations (such as aliases for forks)
-Glide reads a `gopkg.yaml` file with the rules. With this information Glide retrieves
+Gopkg reads a `gopkg.yaml` file with the rules. With this information Gopkg retrieves
 needed dependencies.
 
 When a dependent package is encountered its imports are scanned to determine
@@ -87,7 +87,7 @@ A project is structured like this:
                   |-- ... etc.
 ```
 
-*Take a look at [the Glide source code](http://github.com/Khulnasoft-lab/gopkg)
+*Take a look at [the Gopkg source code](http://github.com/Khulnasoft-lab/gopkg)
 to see this philosophy in action.*
 
 ## Install
@@ -130,7 +130,7 @@ This will leave you with `./gopkg`, which you can put in your `$PATH` if
 you'd like. (You can also take a look at `make install` to install for
 you.)
 
-The Glide repo has now been configured to use gopkg to
+The Gopkg repo has now been configured to use gopkg to
 manage itself, too.
 
 ## Usage
@@ -152,7 +152,7 @@ directory.
 
 Initialize a new workspace. Among other things, this creates a `gopkg.yaml` file
 while attempting to guess the packages and versions to put in it. For example,
-if your project is using Godep it will use the versions specified there. Glide
+if your project is using Godep it will use the versions specified there. Gopkg
 is smart enough to scan your codebase and detect the imports being used whether
 they are specified with another package manager or not.
 
@@ -166,7 +166,7 @@ $ gopkg create
 [INFO]	--> Found reference to github.com/codegangsta/cli
 [INFO]	--> Found reference to gopkg.in/yaml.v2
 [INFO]	Writing configuration file (gopkg.yaml)
-[INFO]	Would you like Glide to help you find ways to improve your gopkg.yaml configuration?
+[INFO]	Would you like Gopkg to help you find ways to improve your gopkg.yaml configuration?
 [INFO]	If you want to revisit this step you can use the config-wizard command at any time.
 [INFO]	Yes (Y) or No (N)?
 n
@@ -209,7 +209,7 @@ dependency packages to fetch anything that's needed and read in any configuratio
 $ gopkg up
 ```
 
-This will recurse over the packages looking for other projects managed by Glide,
+This will recurse over the packages looking for other projects managed by Gopkg,
 Godep, gb, gom, and GPM. When one is found those packages will be installed as needed.
 
 A `gopkg.lock` file will be created or updated with the dependencies pinned to
@@ -255,13 +255,13 @@ This will run `go test` over all directories of your project except the
 
 ## gopkg name
 
-When you're scripting with Glide there are occasions where you need to know
+When you're scripting with Gopkg there are occasions where you need to know
 the name of the package you're working on. `gopkg name` returns the name of the
 package listed in the `gopkg.yaml` file.
 
 ### gopkg tree
 
-Glide includes a few commands that inspect code and give you details
+Gopkg includes a few commands that inspect code and give you details
 about what is imported. `gopkg tree` is one such command. Running it
 gives data like this:
 
@@ -309,7 +309,7 @@ _This command is deprecated and will be removed in the near future._
 
 ### gopkg list
 
-Glide's `list` command shows an alphabetized list of all the packages
+Gopkg's `list` command shows an alphabetized list of all the packages
 that a project imports.
 
 ```
@@ -370,7 +370,7 @@ The above tells `gopkg` that...
 The first library exemplifies a minimal package import. It merely gives
 the fully qualified import path.
 
-When Glide reads the definition for the second library, it will get the repo
+When Gopkg reads the definition for the second library, it will get the repo
 from the source in `repo`, checkout the latest version between 1.2.0 and 2.0.0,
 and put it in `github.com/Khulnasoft-lab/cookoo` in the `vendor` directory. (Note
 that `package` and `repo` can be completely different)
@@ -393,7 +393,7 @@ happens through the [vcs package](https://github.com/khulnasoft-lab/vcs).
 
 ## Frequently Asked Questions (F.A.Q.)
 
-#### Q: Why does Glide have the concept of sub-packages when Go doesn't?
+#### Q: Why does Gopkg have the concept of sub-packages when Go doesn't?
 
 In Go every directory is a package. This works well when you have one repo
 containing all of your packages. When you have different packages in different
@@ -418,11 +418,11 @@ work and lots of extra space in your VCS. There may also be unforeseen errors
 
 There are two parts to importing.
 
-1. If a package you import has configuration for GPM, Godep, gom or gb Glide will
+1. If a package you import has configuration for GPM, Godep, gom or gb Gopkg will
    recursively install the dependencies automatically.
-2. If you would like to import configuration from GPM, Godep, gom or gb to Glide see
+2. If you would like to import configuration from GPM, Godep, gom or gb to Gopkg see
    the `gopkg import` command. For example, you can run `gopkg import godep` for
-   Glide to detect the projects Godep configuration and generate a `gopkg.yaml`
+   Gopkg to detect the projects Godep configuration and generate a `gopkg.yaml`
    file for you.
 
 Each of these will merge your existing `gopkg.yaml` file with the
@@ -435,7 +435,7 @@ You can write it to file like this:
 $ gopkg import godep -f gopkg.yaml
 ```
 
-#### Q: Can Glide fetch a package based on OS or Arch?
+#### Q: Can Gopkg fetch a package based on OS or Arch?
 
 A: Yes. Using the `os` and `arch` fields on a `package`, you can specify
 which OSes and architectures the package should be fetched for. For

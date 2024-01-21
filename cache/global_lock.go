@@ -32,7 +32,7 @@ func SystemLock() error {
 	return err
 }
 
-// SystemUnlock removes the system wide Glide cache lock.
+// SystemUnlock removes the system wide Gopkg cache lock.
 func SystemUnlock() {
 	lockdone <- struct{}{}
 	os.Remove(lockFileName)
@@ -58,7 +58,7 @@ func writeLock() error {
 	}
 
 	ld := &lockdata{
-		Comment: "File managed by Glide (https://gopkg.sh)",
+		Comment: "File managed by Gopkg (https://gopkg.sh)",
 		Pid:     os.Getpid(),
 		Time:    time.Now().Format(time.RFC3339Nano),
 	}
@@ -86,7 +86,7 @@ func startLock() error {
 				time.Sleep(10 * time.Second)
 				err := writeLock()
 				if err != nil {
-					msg.Die("Error using Glide lock: %s", err)
+					msg.Die("Error using Gopkg lock: %s", err)
 				}
 			}
 		}
@@ -130,7 +130,7 @@ func waitOnLock() error {
 
 		if !announced {
 			announced = true
-			msg.Info("Waiting on Glide global cache access")
+			msg.Info("Waiting on Gopkg global cache access")
 		}
 
 		// Check on the lock file every second.

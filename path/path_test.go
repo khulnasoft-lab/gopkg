@@ -9,11 +9,11 @@ import (
 
 const testdata = "../testdata/path"
 
-func TestGlideWD(t *testing.T) {
+func TestGopkgWD(t *testing.T) {
 	wd := filepath.Join(testdata, "a/b/c")
-	found, err := GlideWD(wd)
+	found, err := GopkgWD(wd)
 	if err != nil {
-		t.Errorf("Failed to get Glide directory: %s", err)
+		t.Errorf("Failed to get Gopkg directory: %s", err)
 	}
 
 	if found != filepath.Join(testdata, "a") {
@@ -22,7 +22,7 @@ func TestGlideWD(t *testing.T) {
 
 	// This should fail
 	wd = "/No/Such/Dir"
-	found, err = GlideWD(wd)
+	found, err = GopkgWD(wd)
 	if err == nil {
 		t.Errorf("Expected to get an error on a non-existent directory, not %s", found)
 	}
@@ -69,14 +69,14 @@ func TestVendor(t *testing.T) {
 
 	os.Chdir(wd)
 }
-func TestGlide(t *testing.T) {
+func TestGopkg(t *testing.T) {
 	wd, _ := os.Getwd()
 	td, err := filepath.Abs(testdata)
 	if err != nil {
 		t.Fatal(err)
 	}
 	os.Chdir(filepath.Join(td, "a/b/c"))
-	res, err := Glide()
+	res, err := Gopkg()
 	if err != nil {
 		t.Errorf("Failed to resolve vendor directory: %s", err)
 	}

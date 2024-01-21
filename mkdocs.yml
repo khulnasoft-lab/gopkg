@@ -1,4 +1,4 @@
-site_name: Glide Documentation
+site_name: Gopkg Documentation
 pages:
 - Home: index.md
 - Getting Started: getting-started.md

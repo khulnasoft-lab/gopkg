@@ -1,8 +1,8 @@
-// Package cfg handles working with the Glide configuration files.
+// Package cfg handles working with the Gopkg configuration files.
 //
 // The cfg package contains the ability to parse (unmarshal) and write (marshal)
 // gopkg.yaml and gopkg.lock files. These files contains the details about
-// projects managed by Glide.
+// projects managed by Gopkg.
 //
 // To convert yaml into a cfg.Config instance use the cfg.ConfigFromYaml function.
 // The yaml, typically in a gopkg.yaml file, has the following structure.
@@ -43,7 +43,7 @@
 //   - owners: The owners is a list of one or more owners for the project. This
 //     can be a person or organization and is useful for things like notifying the
 //     owners of a security issue without filing a public bug.
-//   - ignore: A list of packages for Glide to ignore importing. These are package
+//   - ignore: A list of packages for Gopkg to ignore importing. These are package
 //     names to ignore rather than directories.
 //   - excludeDirs: A list of directories in the local codebase to exclude from
 //     scanning for dependencies.

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# You can execute me through Glide by doing the following:
+# You can execute me through Gopkg by doing the following:
 # - Copy me to a directory on $PATH. _vendor/bin/ will work just fine.
 # - Execute `gopkg plugin-example`
 # - ???
@@ -15,10 +15,10 @@ echo "My current working directory is $(pwd)"
 echo "My GOPATH is $GOPATH"
 
 # This is the base directory of your project.
-echo "The project directory is $GLIDE_PROJECT"
+echo "The project directory is $GOPKG_PROJECT"
 
 # This is the location of the gopkg.yaml file.
-echo "The Glide YAML is in $GLIDE_YAML"
+echo "The Gopkg YAML is in $GOPKG_YAML"
 
 # This is the PATH that the plugin inherited.
 echo "My PATH is $PATH"

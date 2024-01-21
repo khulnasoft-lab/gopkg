@@ -83,7 +83,7 @@ func TestResolve(t *testing.T) {
 }
 
 func TestResolveAll(t *testing.T) {
-	// These are build dependencies of Glide, so we know they are here.
+	// These are build dependencies of Gopkg, so we know they are here.
 	deps := []*cfg.Dependency{
 		{Name: "github.com/codegangsta/cli"},
 		{Name: "github.com/Khulnasoft-lab/semver"},

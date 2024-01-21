@@ -16,7 +16,7 @@ import (
 	"github.com/Khulnasoft-lab/gopkg/util"
 )
 
-// Create creates/initializes a new Glide repository.
+// Create creates/initializes a new Gopkg repository.
 //
 // This will fail if a gopkg.yaml already exists.
 //
@@ -26,7 +26,7 @@ import (
 // GPM, Godep, or GB project if one should exist. However, it will still attempt
 // to read the local source to determine required packages.
 func Create(base string, skipImport, nonInteractive bool) {
-	gopkgfile := gpath.GlideFile
+	gopkgfile := gpath.GopkgFile
 	// Guard against overwrites.
 	guardYAML(gopkgfile)
 
@@ -40,7 +40,7 @@ func Create(base string, skipImport, nonInteractive bool) {
 
 	var res bool
 	if !nonInteractive {
-		msg.Info("Would you like Glide to help you find ways to improve your gopkg.yaml configuration?")
+		msg.Info("Would you like Gopkg to help you find ways to improve your gopkg.yaml configuration?")
 		msg.Info("If you want to revisit this step you can use the config-wizard command at any time.")
 		msg.Info("Yes (Y) or No (N)?")
 		res = msg.PromptUntilYorN()
@@ -196,7 +196,7 @@ func guessImportDeps(base string, config *cfg.Config) {
 
 	if d, ok := guessImportGodep(absBase); ok {
 		msg.Info("Importing Godep configuration")
-		msg.Warn("Godep uses commit id versions. Consider using Semantic Versions with Glide")
+		msg.Warn("Godep uses commit id versions. Consider using Semantic Versions with Gopkg")
 		deps = d
 	} else if d, ok := guessImportGPM(absBase); ok {
 		msg.Info("Importing GPM configuration")

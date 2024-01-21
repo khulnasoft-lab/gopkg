@@ -57,7 +57,7 @@ import:
     repo: http://svn.example.com/foo/bar/trunk
 
 
-  # If a package is dependent on OS, you can tell Glide to only
+  # If a package is dependent on OS, you can tell Gopkg to only
   # fetch for certain OS or architectures.
   #
   # os can be any valid GOOS.

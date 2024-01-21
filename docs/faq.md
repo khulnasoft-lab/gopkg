@@ -1,6 +1,6 @@
 # Frequently Asked Questions (F.A.Q.)
 
-## Q: Why does Glide have the concept of sub-packages when Go doesn't?
+## Q: Why does Gopkg have the concept of sub-packages when Go doesn't?
 
 In Go every directory is a package. This works well when you have one repo containing all of your packages. When you have different packages in different VCS locations things become a bit more complicated. A project containing a collection of packages should be handled with the same information including the version. By grouping packages this way we are able to manage the related information.
 
@@ -10,7 +10,7 @@ These are works in progress, and may need some additional tuning. Please take a 
 
 ## Q: Should I check `vendor/` into version control?
 
-That's up to you. It's a personal or organizational decision. Glide will help you install the outside dependencies on demand or help you manage the dependencies as they are checked into your version control system.
+That's up to you. It's a personal or organizational decision. Gopkg will help you install the outside dependencies on demand or help you manage the dependencies as they are checked into your version control system.
 
 By default, commands such as `gopkg update` and `gopkg install` install on-demand. To manage a vendor folder that's checked into version control use the flags:
 
@@ -22,8 +22,8 @@ By default, commands such as `gopkg update` and `gopkg install` install on-deman
 
 There are two parts to importing.
 
-1. If a package you import has configuration for GPM, Godep, Gom, or GB Glide will recursively install the dependencies automatically.
-2. If you would like to import configuration from GPM, Godep, Gom, or GB to Glide see the `gopkg import` command. For example, you can run `gopkg import godep` for Glide to detect the projects Godep configuration and generate a `gopkg.yaml` file for you.
+1. If a package you import has configuration for GPM, Godep, Gom, or GB Gopkg will recursively install the dependencies automatically.
+2. If you would like to import configuration from GPM, Godep, Gom, or GB to Gopkg see the `gopkg import` command. For example, you can run `gopkg import godep` for Gopkg to detect the projects Godep configuration and generate a `gopkg.yaml` file for you.
 
 Each of these will merge your existing `gopkg.yaml` file with the
 dependencies it finds for those managers, and then emit the file as
@@ -34,7 +34,7 @@ You can write it to file like this:
     $ gopkg import godep -f gopkg.yaml
 
 
-## Q: Can Glide fetch a package based on OS or Arch?
+## Q: Can Gopkg fetch a package based on OS or Arch?
 
 Yes. Using the `os` and `arch` fields on a `package`, you can specify
 which OSes and architectures the package should be fetched for. For
@@ -49,7 +49,7 @@ Darwin/OSX systems:
 
 The package will not be fetched for other architectures or OSes.
 
-## Q: How did Glide get its name?
+## Q: How did Gopkg get its name?
 
 Aside from being catchy, "gopkg" is a contraction of "Go Elide". The
 idea is to compress the tasks that normally take us lots of time into a

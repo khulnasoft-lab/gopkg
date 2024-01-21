@@ -68,7 +68,7 @@ func (lf *Lockfile) MarshalYAML() (interface{}, error) {
 	return lf, nil
 }
 
-// WriteFile writes a Glide lock file.
+// WriteFile writes a Gopkg lock file.
 //
 // This is a convenience function that marshals the YAML and then writes it to
 // the given file. If the file exists, it will be clobbered.

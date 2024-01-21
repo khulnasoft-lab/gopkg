@@ -7,7 +7,7 @@ import (
 	"github.com/Khulnasoft-lab/gopkg/msg"
 )
 
-// CacheClear clears the Glide cache
+// CacheClear clears the Gopkg cache
 func CacheClear() {
 	l := cache.Location()
 
@@ -19,5 +19,5 @@ func CacheClear() {
 	cache.SetupReset()
 	cache.Setup()
 
-	msg.Info("Glide cache has been cleared.")
+	msg.Info("Gopkg cache has been cleared.")
 }

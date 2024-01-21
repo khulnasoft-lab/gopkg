@@ -10,7 +10,7 @@ import (
 	"github.com/Khulnasoft-lab/gopkg/repo"
 )
 
-// Install installs a vendor directory based on an existing Glide configuration.
+// Install installs a vendor directory based on an existing Gopkg configuration.
 func Install(installer *repo.Installer, stripVendor bool) {
 	cache.SystemLock()
 

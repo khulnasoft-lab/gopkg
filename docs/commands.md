@@ -1,12 +1,12 @@
 # Commands
 
-The following are the Glide commands, most of which are to help you manage your workspace.
+The following are the Gopkg commands, most of which are to help you manage your workspace.
 
 ## gopkg create (aliased to init)
 
 Initialize a new workspace. Among other things, this creates a `gopkg.yaml` file
 while attempting to guess the packages and versions to put in it. For example,
-if your project is using Godep it will use the versions specified there. Glide
+if your project is using Godep it will use the versions specified there. Gopkg
 is smart enough to scan your codebase and detect the imports being used whether
 they are specified with another package manager or not.
 
@@ -19,7 +19,7 @@ they are specified with another package manager or not.
     [INFO]	--> Found reference to github.com/codegangsta/cli
     [INFO]	--> Found reference to gopkg.in/yaml.v2
     [INFO]	Writing configuration file (gopkg.yaml)
-    [INFO]	Would you like Glide to help you find ways to improve your gopkg.yaml configuration?
+    [INFO]	Would you like Gopkg to help you find ways to improve your gopkg.yaml configuration?
     [INFO]	If you want to revisit this step you can use the config-wizard command at any time.
     [INFO]	Yes (Y) or No (N)?
     n
@@ -52,7 +52,7 @@ The `gopkg get` command can have a [version or range](versions.md) passed in wit
 
     $ gopkg get github.com/Khulnasoft-lab/cookoo#^1.2.3
 
-The version is separated from the package name by an anchor (`#`). If no version or range is specified and the dependency uses Semantic Versions Glide will prompt you to ask if you want to use them.
+The version is separated from the package name by an anchor (`#`). If no version or range is specified and the dependency uses Semantic Versions Gopkg will prompt you to ask if you want to use them.
 
 ## gopkg update (aliased to up)
 
@@ -62,7 +62,7 @@ dependency packages to fetch anything that's needed and read in any configuratio
 
     $ gopkg up
 
-This will recurse over the packages looking for other projects managed by Glide,
+This will recurse over the packages looking for other projects managed by Gopkg,
 Godep, gb, gom, and GPM. When one is found those packages will be installed as needed.
 
 A `gopkg.lock` file will be created or updated with the dependencies pinned to
@@ -96,11 +96,11 @@ This will run `go test` over all directories of your project except the `vendor`
 
 ## gopkg name
 
-When you're scripting with Glide there are occasions where you need to know the name of the package you're working on. `gopkg name` returns the name of the package listed in the `gopkg.yaml` file.
+When you're scripting with Gopkg there are occasions where you need to know the name of the package you're working on. `gopkg name` returns the name of the package listed in the `gopkg.yaml` file.
 
 ## gopkg list
 
-Glide's `list` command shows an alphabetized list of all the packages that a project imports.
+Gopkg's `list` command shows an alphabetized list of all the packages that a project imports.
 
     $ gopkg list
     INSTALLED packages:
@@ -133,7 +133,7 @@ another location that's a mirror of the original. This is useful when you want
 to have a cache for your continuous integration (CI) system or if you want to
 work on a dependency in a local location.
 
-The mirrors are stored in an `mirrors.yaml` file in your `GLIDE_HOME`.
+The mirrors are stored in an `mirrors.yaml` file in your `GOPKG_HOME`.
 
 The three commands to manage mirrors are `list`, `set`, and `remove`.
 

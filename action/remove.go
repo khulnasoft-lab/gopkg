@@ -15,9 +15,9 @@ func Remove(packages []string, inst *repo.Installer) {
 	EnsureGopath()
 	EnsureVendorDir()
 	conf := EnsureConfig()
-	gopkgfile, err := gpath.Glide()
+	gopkgfile, err := gpath.Gopkg()
 	if err != nil {
-		msg.Die("Could not find Glide file: %s", err)
+		msg.Die("Could not find Gopkg file: %s", err)
 	}
 
 	msg.Info("Preparing to remove %d packages.", len(packages))

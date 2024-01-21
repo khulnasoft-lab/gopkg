@@ -190,7 +190,7 @@ func (c *Config) Clone() *Config {
 	return n
 }
 
-// WriteFile writes a Glide YAML file.
+// WriteFile writes a Gopkg YAML file.
 //
 // This is a convenience function that marshals the YAML and then writes it to
 // the given file. If the file exists, it will be clobbered.
@@ -433,7 +433,7 @@ func (d *Dependency) UnmarshalYAML(unmarshal func(interface{}) error) error {
 		d.Subpackages = append(d.Subpackages, subpkg)
 	}
 
-	// Older versions of Glide had a / prefix on subpackages in some cases.
+	// Older versions of Gopkg had a / prefix on subpackages in some cases.
 	// Here that's cleaned up. Someday we should be able to remove this.
 	for k, v := range d.Subpackages {
 		d.Subpackages[k] = strings.TrimPrefix(v, "/")

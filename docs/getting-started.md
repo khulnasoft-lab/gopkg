@@ -1,10 +1,10 @@
-# Getting Started With Glide
+# Getting Started With Gopkg
 
-This is a quick start guide to using Glide once you have it installed.
+This is a quick start guide to using Gopkg once you have it installed.
 
 ## Initially Detecting Project Dependencies
 
-Glide can detect the dependencies in use on a project and create an initial `gopkg.yaml` file for you. This detection can import the configuration from Godep, GPM, Gom, and GB. To do this change into the top level directory for the project and run:
+Gopkg can detect the dependencies in use on a project and create an initial `gopkg.yaml` file for you. This detection can import the configuration from Godep, GPM, Gom, and GB. To do this change into the top level directory for the project and run:
 
     $ gopkg init
 
@@ -22,18 +22,18 @@ The `up` is short for `update`. This will fetch any dependencies specified in th
 
 The fetched dependencies are all placed in the `vendor/` folder at the root of the project. The `go` toolchain will use the dependencies here prior to looking in the `GOPATH` or `GOROOT` if you are using Go 1.6+ or Go 1.5 with the Go 1.5 Vendor Experiment enabled.
 
-Glide will then create a `gopkg.lock` file. This file contains the entire dependency tree pinned to specific commit ids. This file, as we'll see in a moment, can be used to recreate the exact dependency tree and versions used.
+Gopkg will then create a `gopkg.lock` file. This file contains the entire dependency tree pinned to specific commit ids. This file, as we'll see in a moment, can be used to recreate the exact dependency tree and versions used.
 
 If you want to remove nested `vendor/` directories from within dependencies use the `--strip-vendor` or `-v` flag.
 
 ### Dependency Flattening
 
-All of the dependencies Glide fetches are into the top level `vendor/` folder for a project. Go provides the ability for each package to have a `vendor/` folder. Glide only uses a top level folder for two reasons:
+All of the dependencies Gopkg fetches are into the top level `vendor/` folder for a project. Go provides the ability for each package to have a `vendor/` folder. Gopkg only uses a top level folder for two reasons:
 
 1. Each import location will be compiled into the binary. If the same dependency is imported into three `vendor/` folders it will be in the compiled binary three times. This can quickly lead to binary bloat.
 2. Instances of types created in a dependency in one `vendor/` folder are not compatible with the same dependency in other locations. Even if they are the same version. Go sees them as different packages because they are in different locations. This is a problem for database drivers, loggers, and many other things. If you [try to pass an instance created from one location of a package to another you'll encounter errors](https://github.com/mattfarina/golang-broken-vendor).
 
-If a dependency has a `vendor/` directory of its own Glide does not remove it by default. The resolution in the `go` toolchain will use these nested versions if they are present. To remove them use the `--strip-vendor` or `-v` flag on the `up` or `install` commands.
+If a dependency has a `vendor/` directory of its own Gopkg does not remove it by default. The resolution in the `go` toolchain will use these nested versions if they are present. To remove them use the `--strip-vendor` or `-v` flag on the `up` or `install` commands.
 
 ## Installing Dependencies
 
@@ -50,7 +50,7 @@ If you're not managing the dependency versions for a project but need to install
 
 ## Adding More Dependencies
 
-Glide can help you add more dependencies to the `gopkg.yaml` file with the `get` command.
+Gopkg can help you add more dependencies to the `gopkg.yaml` file with the `get` command.
 
     $ gopkg get github.com/Khulnasoft-lab/semver
 
@@ -62,4 +62,4 @@ The `get` command can also work with versions.
 
 The `#` is used as a separator between the dependency name and a version to use. The version can be a semantic version, version range, branch, tag, or commit id.
 
-If no version or range is specified and the dependency uses Semantic Versions Glide will prompt you to ask if you want to use them.
+If no version or range is specified and the dependency uses Semantic Versions Gopkg will prompt you to ask if you want to use them.
